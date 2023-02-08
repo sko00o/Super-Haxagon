@@ -9,6 +9,8 @@
 #include "Driver/Win/PlatformWin.hpp"
 #elif defined __linux__
 #include "Driver/Linux/PlatformLinux.hpp"
+#elif defined __APPLE__ || defined __clang__
+#include "Driver/Linux/PlatformLinux.hpp"
 #elif defined _nspire
 #include "Driver/NSpire/PlatformNspire.hpp"
 #else
@@ -24,6 +26,8 @@ namespace SuperHaxagon {
 		#elif defined _WIN64 || defined __CYGWIN__
 		return std::make_unique<PlatformWin>(Dbg::INFO);
 		#elif defined __linux__
+		return std::make_unique<PlatformLinux>(Dbg::INFO);
+		#elif defined __APPLE__ || defined __clang__
 		return std::make_unique<PlatformLinux>(Dbg::INFO);
 		#elif defined _nspire
 		return std::make_unique<PlatformNspire>(Dbg::INFO);
