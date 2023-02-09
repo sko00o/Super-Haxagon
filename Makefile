@@ -77,9 +77,9 @@ ifeq ($(TARGET),LINUX64)
     LIBRARIES += sfml-graphics sfml-window sfml-audio sfml-system
 endif
 
-# MACOS CONFIGURATION #
+# NATIVE/DEFAULT CONFIGURATION #
 
-ifeq ($(TARGET),MAC64)
+ifeq ($(TARGET),$(filter $(TARGET),NATIVE ''))
     SOURCE_DIRS += source/Driver/SFML source/Driver/Linux
     LIBRARIES += sfml-graphics sfml-window sfml-audio sfml-system
 endif
